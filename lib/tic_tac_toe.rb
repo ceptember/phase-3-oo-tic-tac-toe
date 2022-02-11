@@ -13,7 +13,6 @@ class TicTacToe
 
     def initialize
         @board = [" "," "," "," "," "," "," "," "," "]
-        self.play
     end
 
     # #### HELPER METHODS #### 
@@ -52,7 +51,7 @@ class TicTacToe
     end
 
     def turn
-        puts "Enter a space number from 1 to 9"
+       # puts "Enter a space number from 1 to 9"
         input = gets
         index = input_to_index(input)
         if valid_move?(index)
@@ -93,7 +92,7 @@ class TicTacToe
     end
 
     def over?
-        self.full? || self.won?
+        self.draw? || self.won?
     end
 
     def winner
@@ -110,13 +109,14 @@ class TicTacToe
         until over? do
             self.turn
         end 
+
+        #this part ends when it's over
         if won?
             puts "Congratulations #{winner}!"
-        elsif draw?
+        elsif draw? 
             puts "Cat's Game!"
         end
      end
-
 end
 
 #new_game = TicTacToe.new
